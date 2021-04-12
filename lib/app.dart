@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-import 'package:cupertino_store/screens/home/HomeScreen.dart';
+import 'package:cupertino_store/navigations/MainTabBar.dart';
 
 class CupertinoStoreApp extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class CupertinoStoreApp extends StatelessWidget {
 
     return CupertinoApp(
       theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: HomePage(),
+      home: MainTabBar(),
     );
   }
 }
