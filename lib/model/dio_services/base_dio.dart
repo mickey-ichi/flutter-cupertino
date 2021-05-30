@@ -3,19 +3,21 @@ import 'package:dio/dio.dart';
 import 'package:flutter_config/flutter_config.dart';
 
 class BaseDio {
-  late Dio dio;
-  static String _baseUrl = FlutterConfig.get("APP_DOMAIN");
-  static const Duration _connectTimeOut = Duration(minutes: 1);
-  static const Duration _receiveTimeout = Duration(minutes: 1);
+  final Dio dio;
 
-  BaseDio() {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: _baseUrl,
-        connectTimeout: _connectTimeOut.inMilliseconds,
-        receiveTimeout: _receiveTimeout.inMilliseconds,
-      ),
-    );
+  static final String _baseUrl = FlutterConfig.get("APP_DOMAIN");
+  static final BaseOptions _baseOptions = BaseOptions(
+    baseUrl: _baseUrl,
+    connectTimeout: Duration(minutes: 1).inMilliseconds,
+    receiveTimeout: Duration(minutes: 1).inMilliseconds,
+  );
+
+  BaseDio._internal(this.dio);
+
+  static final BaseDio _instance = BaseDio._internal(Dio(_baseOptions));
+
+  factory BaseDio() {
+    return _instance;
   }
 
   initializeInterceptors() {
