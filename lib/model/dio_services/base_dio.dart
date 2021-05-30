@@ -19,6 +19,7 @@ class BaseDio {
   }
 
   initializeInterceptors() {
+    dio.interceptors.clear();
     dio.interceptors.add(AppInterceptors());
   }
 }
