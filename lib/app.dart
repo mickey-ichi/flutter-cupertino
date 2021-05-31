@@ -11,9 +11,6 @@ class CupertinoStoreApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: MainTabBar(),
-    );
+    return MainTabBar();
   }
 }
