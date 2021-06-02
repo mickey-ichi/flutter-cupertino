@@ -15,7 +15,7 @@ class AppInterceptors extends Interceptor {
 
   @override
   FutureOr<dynamic> onResponse(response, handler) async {
-    // Todo handler response
+    return handler.next(response);
   }
 
   @override
