@@ -1,4 +1,4 @@
-import 'package:cupertino_store/model/dio_services/app_interceptors.dart';
+import 'package:cupertino_store/dio_services/app_interceptors.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_config/flutter_config.dart';
 
